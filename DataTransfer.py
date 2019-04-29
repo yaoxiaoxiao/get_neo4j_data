@@ -1,8 +1,8 @@
 from help import *
 
 #获取结点的数据信息
-def load_data_of_node(graph, data,nodes_list):#参数说明： graph，为了从图数据库取数据，
-    single_data={}
+def load_data_of_node(graph, data,nodes_list):#参数说明： graph:图数据库取数据，data:节点数据，nodes_list：结点列表
+    single_data={} #
     relationships=[{"Type":"Berthed","nodes":[]},{"Type":"Flag_is","nodes":[]},{"Type":"Trade","nodes":[]},{"Type":"belong","nodes":[]},
             {"Type":"build","nodes":[]},{"Type":"location","nodes":[]},{"Type":"manage","nodes":[]},{"Type":"own","nodes":[]}]
     re=[]
@@ -33,12 +33,6 @@ def load_data_of_node(graph, data,nodes_list):#参数说明： graph，为了从
     for x in relationships:
         if x not in re:
             re.append(x)
-    a=len(relationships)
-    for i in re[0:8]:
-        for j in re[8:a+1]:
-            if i["Type"]==j["Type"]:
-                b=re.index(i)
-                del re[b]
 
     if single_data not in nodes_list:
         nodes_list.append(single_data)
